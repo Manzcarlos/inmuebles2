@@ -1,0 +1,287 @@
+<!-- Submit Property start -->
+
+                    <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST" enctype="multipart/form-data">
+
+                        <div class="search-contents-sidebar mb-30">
+                            <div class="row">
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="inputproperty-title1" class="form-label">Titulo</label>
+                                        <input 
+                                        class="form-control"
+                                        type="text" 
+                                        placeholder="Titulo"
+                                        name="title" 
+                                        id="title" 
+                                        value="<% if (editing || hasError) { %><%= product.title %><% } %>">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="inputprice1" class="form-label">Precio</label>
+                                        <input type="number" step="0.01" class="form-control" name="Price" id="Price" placeholder="USD">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="inputname1" class="form-label">Area</label>
+                                        <input type="text" class="form-control" name="area" id="area" placeholder="SqFt">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Habitaciones</label>
+                                        <select class="selectpicker search-fields" name="bedroom" id="bedroom">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Baños</label>
+                                        <select class="selectpicker search-fields" name="bathroom" id="bathroom">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Balcones</label>
+                                        <select class="selectpicker search-fields" name="balcony" id="balcony">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4  col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Garages</label>
+                                        <select class="selectpicker search-fields" name="garage" id="garage">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="main-title-4">
+                            <h1>Imagenes</h1>
+                        </div>
+                            <input 
+                            type="file" 
+                            name="image" 
+                            id="image" multiple="multiple">
+    
+                        <div class="main-title-4">
+                            <h1>Location</h1>
+                        </div>
+                        <div class="row mb-30 ">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="inputaddress1" class="form-label">Direccion</label>
+                                    <input type="email" name="address" class="form-control" id="address" placeholder="Direccion">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Ciudad</label>
+                                    <select class="selectpicker search-fields" name="City" id="City">
+                                        <option>Choose City</option>
+                                        <option>New York</option>
+                                        <option>Los Angeles</option>
+                                        <option>Chicago</option>
+                                        <option>Brooklyn</option>
+                                        <option>Queens</option>
+                                        <option>Houston</option>
+                                        <option>Manhattan</option>
+                                        <option>Philadelphia</option>
+                                        <option>Phoenix</option>
+                                        <option>San Antonio</option>
+                                        <option>Bronx</option>
+                                        <option>San Diego</option>
+                                        <option>Dallas</option>
+                                        <option>San Jose</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Provincia</label>
+                                    <select class="selectpicker search-fields" name="state" id="state">
+                                        <option>Choose State</option>
+                                        <option>Alabama</option>
+                                        <option>Alaska</option>
+                                        <option>Arizona</option>
+                                        <option>Arkansas</option>
+                                        <option>California</option>
+                                        <option>Colorado</option>
+                                        <option>Connecticut</option>
+                                        <option>Delaware</option>
+                                        <option>Florida</option>
+                                        <option>Georgia</option>
+                                        <option>Hawaii</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="inputcode1" class="form-label">Codigo Postal</label>
+                                    <input type="text" name="zipcode" class="form-control" id="zipcode" placeholder="Postal Code">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="main-title-4">
+                            <h1>Descripcion</h1>
+                        </div>
+                        <div class="row mb-30">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Informacion detallada</label>
+                                    <textarea name="description" class="form-control" rows="3" placeholder="Informacion detallada" id="description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Año de construccion <span>(optional)</span></label>
+                                    <input type="number" step="1" class="form-control" name="year" id="year" placeholder="2">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Bedrooms (optional)</label>
+                                    <select class="selectpicker search-fields" name="bedrooms">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label>Bathrooms (optional)</label>
+                                    <select class="selectpicker search-fields" name="bathrooms">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-30">
+                            <div class="col-lg-12">
+                                <div class="main-title-4">
+                                    <h1>Features (optional)</h1>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox1" type="checkbox">
+                                            <label for="checkbox1">
+                                                Free Parking
+                                            </label>
+                                        </div>
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox2" type="checkbox">
+                                            <label for="checkbox2">
+                                                Air Condition
+                                            </label>
+                                        </div>
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox3" type="checkbox">
+                                            <label for="checkbox3">
+                                                Places to seat
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox4" type="checkbox">
+                                            <label for="checkbox4">
+                                                Swimming Pool
+                                            </label>
+                                        </div>
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox5" type="checkbox">
+                                            <label for="checkbox5">
+                                                Laundry Room
+                                            </label>
+                                        </div>
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox6" type="checkbox">
+                                            <label for="checkbox6">
+                                                Window Covering
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox7" type="checkbox">
+                                            <label for="checkbox7">
+                                                Central Heating
+                                            </label>
+                                        </div>
+                                        <div class="checkbox checkbox-theme checkbox-circle">
+                                            <input id="checkbox8" type="checkbox">
+                                            <label for="checkbox8">
+                                                Alarm
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="main-title-4">
+                            <h1>Contacto</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="inputname2" class="form-label">Nombre</label>
+                                    <input type="text" name="ContactName" class="form-control" id="ContactName" placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="inputEmail2" class="form-label">Email</label>
+                                    <input type="email" name="contactEmail" class="form-control" id="contactEmail" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label for="inputphone2" class="form-label">Telefono</label>
+                                    <input type="text" name="contactPhone" class="form-control" id="contactPhone" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+            
+                    </form>
+    
+    <!-- Submit Property end -->
+    
